@@ -86,7 +86,7 @@ class ServiceLocator(object):
         # Providers are always registered in self.providers  as callable methods
 
         if not callable(provider):
-            self._set_provider(service, lambda *args, **kwargs: provider)
+            self._set_provider(service, get_singleton)            
         elif singleton:
             self._set_provider(service, get_singleton)
         else:
